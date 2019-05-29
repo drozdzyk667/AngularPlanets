@@ -1,0 +1,129 @@
+$desktop: 700px;
+$desktopBigger: 1350px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+@mixin desktopBigger {
+  @media (min-width: #{$desktopBigger}) {
+      @content;
+  }
+}
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-repeat: no-repeat;
+  height: 135vh;
+
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.container {
+  width: 100%;
+
+  .jumbotron {
+    position: absolute;
+    left: 10%;
+    width: 20%;
+    margin: auto auto;
+    margin-bottom: 50px;
+
+    h1 {
+      font-size: 5vw;
+
+      @include desktop {
+      font-size: 4vw;
+    }
+  }
+
+    h2 {
+      font-size: 2vw;
+    }
+  }
+}
+
+.wrapper{
+  margin: 100px 0px 0px 32%;
+}
+
+.exteriorUL {
+  text-decoration: none;
+  list-style-type: none;
+
+  li {
+    :hover {
+      background-color: greenyellow;
+    }
+  }
+
+  b {
+    font-size: 20px;
+    width: 150px;
+
+    @include desktop {
+      font-size: 25px;
+      cursor: pointer;
+      color: white;
+      display: grid;
+      width: 200px;
+      margin-left: 10%;
+      justify-content: center;
+    }
+  }
+
+  .interiorUL {
+    margin: 10px 0 20px 0;
+    font-size: 16px;
+    position: relative;
+    left: -10%;
+    width: 90%;
+
+    @include desktop {
+      color: white;
+      list-style-type: square;
+      margin-bottom: 30px;
+      font-size: 20px;
+      position: relative;
+      left: 25%;
+      width: 35%;
+      font-family: 'ZCOOL KuaiLe', cursive;
+    }
+
+
+
+    li:nth-child(even) {
+      color: rgb(206, 144, 30);
+      margin-left: 0%;
+
+      @include desktop {
+      color: rgb(206, 144, 30);
+      margin-left: 3%;
+      }
+    }
+
+    li:nth-child(odd) {
+      color: rgb(136, 190, 86);
+    }
+
+    span {
+      color: white;
+    }
+  }
+}
+
+
+
