@@ -84,9 +84,9 @@ body {
 
       #mars {
         position: absolute;
-        left: 10%;
-        top: 70%;
-        width: 20%;
+        left: 20%;
+        top: 100%;
+        width: 40%;
 
         @include desktop {
           position: absolute;
@@ -97,9 +97,9 @@ body {
       }
 
       #mercury {
-        position: relative;
-        margin: 50% 0 0 10%;
-        width: 20%;
+        position: absolute;
+        margin: 150% 0 0 20%;
+        width: 40%;
 
         @include desktop {
           position: absolute;
