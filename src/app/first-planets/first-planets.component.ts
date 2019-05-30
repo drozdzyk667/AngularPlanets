@@ -23,7 +23,7 @@ ngOnInit() {
   return this.svc.getPlanets()
     .subscribe(res => {
       this.results$ = res['results'];
-      console.log(this.results$.length);
+      // console.log(this.results$.length);
       this.results$.sort((a, b) => a.name.localeCompare(b.name)); // sortowanie po nazwie planety
       console.log(this.results$);
     });

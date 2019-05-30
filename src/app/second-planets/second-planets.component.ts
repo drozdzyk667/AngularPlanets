@@ -10,8 +10,12 @@ import { Planet } from './planet.module';
 export class SecondPlanetsComponent implements OnInit {
   results$: Planet[];
   hidden = [];
-  isAnyItemClicked: boolean = false;
+  isAnyItemClicked = false;
   clickedItem: string;
+  public search: any = '';
+  locked: any[] = [];
+  lockFilter;
+  query;
 
   constructor(private svc: DataService) { }
 
@@ -19,7 +23,7 @@ ngOnInit() {
   return this.svc.getPlanets()
     .subscribe(res => {
       this.results$ = res['results'];
-      this.results$.sort((a,b) => a.name.localeCompare(b.name)); // sortowanie po nazwie planety
+      this.results$.sort((a, b) => a.name.localeCompare(b.name)); // sortowanie po nazwie planety
       console.log(this.results$);
     });
 

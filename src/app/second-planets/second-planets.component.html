@@ -17,12 +17,14 @@
   </div>
 </div>
 
+<input type="text" class="form-control" placeholder=" Enter planet name" [(ngModel)]="query" id="listSearch">
+
 <ng-container>
   <div class="wrapper">
-    <ul class="exteriorUL" *ngFor="let planet of results$; let i = index;">
+      <ul class="exteriorUL" *ngFor="let planet of results$ | LockFilter: query; let i = index;">
       <li>
         <b (click)="hidden[i] = !hidden[i]" (click)="clickItem(); clickedItem = planet.name"
-        [class.disabled]="isAnyItemClicked && clickedItem != planet.name" class="btn btn-success">{{planet.name}}</b>
+          [class.disabled]="isAnyItemClicked && clickedItem != planet.name" class="btn btn-success">{{planet.name}}</b>
       </li>
       <ul class="interiorUL" [hidden]="!hidden[i]" [class.appears]="hidden[i]==true">
         <li>
