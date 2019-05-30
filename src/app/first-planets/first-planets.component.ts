@@ -3,15 +3,19 @@ import { DataService } from './data.service';
 import { Planet } from './planet.module';
 
 @Component({
-  selector: 'app-second-planets',
-  templateUrl: './second-planets.component.html',
-  styleUrls: ['./second-planets.component.scss']
+  selector: 'app-first-planets',
+  templateUrl: './first-planets.component.html',
+  styleUrls: ['./first-planets.component.scss']
 })
-export class SecondPlanetsComponent implements OnInit {
+export class FirstPlanetsComponent implements OnInit {
   results$: Planet[];
   hidden = [];
-  isAnyItemClicked: boolean = false;
+  isAnyItemClicked = false;
   clickedItem: string;
+  public search: any = '';
+  locked: any[] = [];
+  lockFilter;
+  query;
 
   constructor(private svc: DataService) { }
 
@@ -19,7 +23,8 @@ ngOnInit() {
   return this.svc.getPlanets()
     .subscribe(res => {
       this.results$ = res['results'];
-      this.results$.sort((a,b) => a.name.localeCompare(b.name)); // sortowanie po nazwie planety
+      console.log(this.results$.length);
+      this.results$.sort((a, b) => a.name.localeCompare(b.name)); // sortowanie po nazwie planety
       console.log(this.results$);
     });
 

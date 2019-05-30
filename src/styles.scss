@@ -1,4 +1,4 @@
-$desktop: 700px;
+$desktop: 800px;
 $desktopBigger: 1350px;
 
 @mixin desktop {
@@ -27,16 +27,32 @@ body {
 
 }
 
+.form-control {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 40%;
+
+  @include desktop {
+    position: absolute;
+    margin-top: 20%;
+    left: 10%;
+    width: 20%;
+  }
+}
+
 .disabled {
   pointer-events: none;
   opacity: 0.6;
 }
+
 
 .container {
   width: 100%;
 
   .jumbotron {
     position: absolute;
+    top: 0;
     left: 10%;
     width: 20%;
     margin: auto auto;
@@ -56,8 +72,53 @@ body {
   }
 }
 
+.nav {
+  position: absolute;
+
+  @include desktop {
+    position: relative;
+    top: 5%;
+  }
+
+    a {
+
+      #mars {
+        position: absolute;
+        left: 10%;
+        top: 70%;
+        width: 20%;
+
+        @include desktop {
+          position: absolute;
+          left: 80%;
+          top: 25vw;
+          width: 10%;
+        }
+      }
+
+      #mercury {
+        position: relative;
+        margin: 50% 0 0 10%;
+        width: 20%;
+
+        @include desktop {
+          position: absolute;
+        margin: 0;
+          left: 75%;
+          top: 5vw;
+          width: 15%;
+      }
+    }
+    }
+  }
+
+
 .wrapper{
-  margin: 100px 0px 0px 32%;
+  margin: 150px 0px 0px 32%;
+
+  @include desktop {
+    margin: 100px 0px 0px 32%;
+    }
 }
 
 .exteriorUL {
@@ -66,7 +127,8 @@ body {
 
   li {
     :hover {
-      background-color: greenyellow;
+      transition: 0.3s;
+      transform: scale(1.2);
     }
   }
 
@@ -75,13 +137,14 @@ body {
     width: 150px;
 
     @include desktop {
-      font-size: 25px;
+      font-size: 22px;
       cursor: pointer;
       color: white;
       display: grid;
-      width: 200px;
+      width: 180px;
       margin-left: 10%;
       justify-content: center;
+      font-family: 'ABeeZee', sans-serif;
     }
   }
 
@@ -96,32 +159,82 @@ body {
       color: white;
       list-style-type: square;
       margin-bottom: 30px;
-      font-size: 20px;
+      font-size: 18px;
       position: relative;
-      left: 25%;
-      width: 35%;
+      padding-right: 5px;
+      left: 20%;
+      width: 320px;
       font-family: 'ZCOOL KuaiLe', cursive;
+      background-color: rgba(20, 20, 20, 0.7);
+      border-radius: 2vw;
+      box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.3);
+      border-bottom: groove;
+      border-left: groove;
     }
 
+    li:first-child {
+      @include desktop {
+        padding-top: 20px;
+        }
+    }
 
+    li:last-child {
+      @include desktop {
+        padding-bottom: 20px;
+        }
+    }
 
     li:nth-child(even) {
-      color: rgb(206, 144, 30);
+      color: rgb(248, 172, 31);
       margin-left: 0%;
 
       @include desktop {
-      color: rgb(206, 144, 30);
+      color: rgb(255, 178, 35);
       margin-left: 3%;
       }
     }
 
     li:nth-child(odd) {
-      color: rgb(136, 190, 86);
+      color: rgb(93, 192, 0);
     }
 
     span {
       color: white;
     }
+  }
+
+  .appears {
+    opacity: 0;
+    animation: appears 1s forwards;
+  }
+
+  @keyframes appears {
+    from {opacity: 0; transform: scale(0.3)}
+    to {opacity:1; transform: scale(1)}
+  }
+
+}
+
+#loading {
+  visibility: hidden;
+
+  @include desktop {
+    position: absolute;
+    left: 5%;
+    margin-top: 35%;
+    animation: rotation 6s infinite linear;
+    visibility: hidden;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes rotation {
+  from {
+    visibility: visible;
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
   }
 }
 

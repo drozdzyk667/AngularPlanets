@@ -1,10 +1,11 @@
 <div class="nav navbar">
+
   <a routerLink="/first-planets" routerLinkActive="active" #rla="routerLinkActive">
     <img id="mars" class="img-responsive" src="{{rla.isActive ? 'assets/images/marsNotActive.png' : 'assets/images/mars.png'}}">
   </a>
 
   <a routerLink="/second-planets" routerLinkActive="active" #rla="routerLinkActive">
-    <img id="mercury" class="img-responsive" src="{{rla.isActive ? 'assets/images/mercury.png' : 'assets/images/mercuryNotActive.png'}}">
+    <img id="mercury" class="img-responsive" src="{{rla.isActive ? 'assets/images/mercury.png' : 'assets/images/mercuryNotActive.png'}}" width=500 height=500>
   </a>
 
   <img id="loading" class="img-responsive" src="assets/images/loading_small.png">
@@ -17,12 +18,14 @@
   </div>
 </div>
 
+<input type="text" class="form-control" placeholder=" Enter planet name" [(ngModel)]="query" id="listSearch">
+
 <ng-container>
   <div class="wrapper">
-    <ul class="exteriorUL" *ngFor="let planet of results$; let i = index;">
+    <ul class="exteriorUL" *ngFor="let planet of results$ | LockFilter: query; let i = index;">
       <li>
         <b (click)="hidden[i] = !hidden[i]" (click)="clickItem(); clickedItem = planet.name"
-        [class.disabled]="isAnyItemClicked && clickedItem != planet.name" class="btn btn-success">{{planet.name}}</b>
+          [class.disabled]="isAnyItemClicked && clickedItem != planet.name" class="btn btn-success">{{planet.name}}</b>
       </li>
       <ul class="interiorUL" [hidden]="!hidden[i]" [class.appears]="hidden[i]==true">
         <li>
@@ -46,12 +49,13 @@
         <li>
           <span>Diameter:</span> {{planet.diameter}} km
         </li>
+
         <!-- <hr> -->
       </ul>
     </ul>
   </div>
-
 </ng-container>
+
 
 
 

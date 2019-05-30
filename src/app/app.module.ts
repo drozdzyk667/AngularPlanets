@@ -1,17 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { DataService } from './data.service';
-import { SecondPlanetsComponent } from './second-planets/second-planets.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchPipe } from './first-planets/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecondPlanetsComponent
+    routingComponents,
+    PageNotFoundComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -19,7 +21,7 @@ import { SecondPlanetsComponent } from './second-planets/second-planets.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
