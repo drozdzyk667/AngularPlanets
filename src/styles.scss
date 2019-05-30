@@ -13,7 +13,6 @@ $desktopBigger: 1350px;
   }
 }
 
-
 html, body {
   padding: 0;
   margin: 0;
@@ -45,7 +44,6 @@ body {
   pointer-events: none;
   opacity: 0.6;
 }
-
 
 .container {
   width: 100%;
@@ -107,18 +105,41 @@ body {
           left: 75%;
           top: 5vw;
           width: 15%;
+        }
       }
     }
+
+  #loading {
+    visibility: hidden;
+
+    @include desktop {
+      position: absolute;
+      left: 5%;
+      margin-top: 35%;
+      animation: rotation 6s infinite linear;
+      visibility: hidden;
+      animation-delay: 1s;
     }
   }
 
+  @keyframes rotation {
+    from {
+      visibility: visible;
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+  }
+
+ }
 
 .wrapper{
   margin: 150px 0px 0px 32%;
 
   @include desktop {
     margin: 100px 0px 0px 32%;
-    }
+  }
 }
 
 .exteriorUL {
@@ -175,13 +196,13 @@ body {
     li:first-child {
       @include desktop {
         padding-top: 20px;
-        }
+      }
     }
 
     li:last-child {
       @include desktop {
         padding-bottom: 20px;
-        }
+      }
     }
 
     li:nth-child(even) {
@@ -189,8 +210,8 @@ body {
       margin-left: 0%;
 
       @include desktop {
-      color: rgb(255, 178, 35);
-      margin-left: 3%;
+        color: rgb(255, 178, 35);
+        margin-left: 3%;
       }
     }
 
@@ -211,30 +232,6 @@ body {
   @keyframes appears {
     from {opacity: 0; transform: scale(0.3)}
     to {opacity:1; transform: scale(1)}
-  }
-
-}
-
-#loading {
-  visibility: hidden;
-
-  @include desktop {
-    position: absolute;
-    left: 5%;
-    margin-top: 35%;
-    animation: rotation 6s infinite linear;
-    visibility: hidden;
-    animation-delay: 1s;
-  }
-}
-
-@keyframes rotation {
-  from {
-    visibility: visible;
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(359deg);
   }
 }
 
