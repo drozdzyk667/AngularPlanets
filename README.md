@@ -5,7 +5,7 @@
 Hello, it's simple project where I'am  fetching planets data and display them. You can see 2 pages of different planets. Displayed data is set alphabetically, moreover after clicking on any other planet rest of them are disabled. Moreover, it's a simple project to get some skill in typescript and angular. Despite of level of this project I hope you likes it
 
 ## Screenshots
-![Main screen](./assets/images/rwd.png)
+![Main screen](./src/assets/images/rwd.png)
 
 ## Technologies
 * HTML 5
