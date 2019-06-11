@@ -1,5 +1,5 @@
-# Planets app based on:
-### https://swapi.co/api/planets/
+## Planets app based on: https://swapi.co/api/planets/
+ 
 
 ## General info
 Hello, it's simple project where I'am  fetching planets data and display them. You can see 2 pages of different planets. Displayed data is set alphabetically, moreover after clicking on any other planet rest of them are disabled. Moreover, it's a simple project to get some skill in typescript and angular. Despite of level of this project I hope you likes it
